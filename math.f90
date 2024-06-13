@@ -1,4 +1,5 @@
 module math_function
+    use omp_lib
     use fileIO
     implicit none
     
@@ -9,7 +10,7 @@ module math_function
         character(len=200):: filename_p, filename_n
         real*8, allocatable:: cubexyz_p(:,:,:), cubexyz_n(:,:,:)
         
-        integer:: i, j, k
+        integer:: i, j, k, mcpu
         
         type(atom), allocatable:: atom_list(:)
         
@@ -28,6 +29,10 @@ module math_function
         
         !separate the cube into positive and negative part
         
+        mcpu = omp_get_max_threads()
+        call omp_set_num_threads(mcpu)
+        
+        !$omp parallel do default(shared) private(i,j,k) shared(cubexyz, cubexyz_p, cubexyz_n)
         do i = 1, reslu(1)
             do j = 1, reslu(2)
                 do k = 1, reslu(3)
@@ -39,8 +44,9 @@ module math_function
                 end do
             end do
         end do
+        !$omp end parallel do
 
-        filename_p = "position.cub"
+        filename_p = "positive.cub"
         filename_n = "negative.cub"
         
         call cubewrite(filename_p, reslu, atoms_num, atom_list, origin, vecx, vecy, vecz, cubexyz_p)
