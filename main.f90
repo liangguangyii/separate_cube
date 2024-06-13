@@ -1,5 +1,5 @@
 program main
-    use fileIO
+    use math_function
     implicit none
     
     character(len=200):: filename
@@ -13,7 +13,6 @@ program main
     
     filename = "z.cub"
     
-    call cuberead(filename, reslu, atoms_num, atom_list, origin, vecx, vecy, vecz, cubexyz)
-    filename = "debug.cub"
-    call cubewrite(filename, reslu, atoms_num, atom_list, origin, vecx, vecy, vecz, cubexyz)
+    call separate_cube(filename)
+    
 end program main
