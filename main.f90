@@ -11,7 +11,8 @@ program main
     real*8:: origin(3), vecx(3), vecy(3), vecz(3)
     real*8, allocatable:: cubexyz(:,:,:)  
     
-    filename = "z.cub"
+    
+    call readinput(filename)
     
     call separate_cube(filename)
     
