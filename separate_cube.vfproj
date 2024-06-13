@@ -60,6 +60,7 @@
 		<File RelativePath=".\main.f90"/>
 		<File RelativePath=".\math.f90"/></Filter>
 		<File RelativePath=".\input.txt"/>
+		<File RelativePath=".\readme.md"/>
 	</Files>
 	<Globals/>
 </VisualStudioProject>
