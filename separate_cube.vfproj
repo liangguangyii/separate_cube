@@ -53,6 +53,7 @@
 	<Files>
 		<Filter Name="Header Files" Filter="fi;fd;h;inc"/>
 		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		<File RelativePath=".\jmod_Cr.cub"/>
 		<File RelativePath=".\z.cub"/></Filter>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
 		<File RelativePath=".\fileIO.f90"/>
